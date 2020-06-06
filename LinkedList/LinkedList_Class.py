@@ -87,6 +87,49 @@ class LinkedList:
             print('LinkedList does not have {}!\n'.format(value))
         return listIndex
 
+    def _get_max(self):
+        if self.pHead is None:
+            print('LinkedList is not exists!')
+            return
+        max = self.pHead.data
+        indexMax = 0
+        count = 1
+        pTemp = self.pHead.pNext
+        while pTemp:
+            if pTemp.data > max:
+                max = pTemp.data
+                indexMax = count
+            count += 1
+            pTemp = pTemp.pNext
+        return (max, indexMax)
+
+    def _get_min(self):
+        if self.pHead is None:
+            print('LinkedList is not exists!')
+            return
+        min = self.pHead.data
+        indexMin = 0
+        count = 1
+        pTemp = self.pHead.pNext
+        while pTemp:
+            if pTemp.data < min:
+                min = pTemp.data
+                indexMin = count
+            count += 1
+            pTemp = pTemp.pNext
+        return (min, indexMin)
+
+    def _get_sum(self):
+        if self.pHead is None:
+            print('LinkedList is not exists!')
+            return -1
+        sum = 0
+        pTemp = self.pHead
+        while pTemp:
+            sum += pTemp.data
+            pTemp = pTemp.pNext
+        return sum
+
     # def _extend_another(self, linkedList2: LinkedList):
     #     if self.pHead is None:
     #         self.pHead = linkedList2.pHead
@@ -188,18 +231,20 @@ def test():
     
     # print('length:{}'.format(myLinkedList._get_len()))
 
-    A = LinkedList()
-    [A._add_at_ending(i) for i in range(0, 10, 2)]
-    print('Linkedlist A:')
-    A._print_list_left_right()
-    B = LinkedList()
-    [B._add_at_ending(i) for i in range(1, 10, 2)]
-    print('Linkedlist B:')
-    B._print_list_left_right()
-    _add_linked2_to_linked1(A, B)
-    print('Linkedlist A:')
-    A._print_list_left_right()
-    
+    # A = LinkedList()
+    # [A._add_at_ending(i) for i in range(0, 10, 2)]
+    # print('Linkedlist A:')
+    # A._print_list_left_right()
+    # B = LinkedList()
+    # [B._add_at_ending(i) for i in range(1, 10, 2)]
+    # print('Linkedlist B:')
+    # B._print_list_left_right()
+    # _add_linked2_to_linked1(A, B)
+    # print('Linkedlist A:')
+    # A._print_list_left_right()
+    # print(A._get_max())
+    # print(A._get_min())
+    # print(A._get_sum())
 
     
 
